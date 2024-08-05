@@ -1,5 +1,321 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: var(--font-family);
+  background: var(--primary-color) no-repeat fixed center / cover;
+}
+
+.title-decor {
+  color: var(--subtitle-color);
+  font-size: var(--text-size-medium);
+  line-height: 1.3;
+  background-color: var(--accent-color);
+}
+
+.title-decor_regular {
+  font-weight: normal;
+}
+
+.accent-title-decor {
+  color: var(--foreground-color);
+  font-size: var(--text-size-large);
+  line-height: 0.8;
+}
+
+.decorated-zone {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+.decorated-zone::before {
+  border-inline-end: 1px solid var(--decor-color);
+  border-block-start: 1px solid var(--decor-color);
+  inset-block-start: 20px;
+  inset-inline-end: 20px;
+}
+
+.decorated-zone::after {
+  border-inline-start: 1px solid var(--decor-color);
+  border-block-end: 1px solid var(--decor-color);
+  inset-block-end: 20px;
+  inset-inline-start: 20px;
+}
+
+.custom-link {
+  text-decoration: none;
+  text-shadow: var(--link-shadow);
+}
+
+.custom-link:hover {
+  border-block-end: 1px solid var(--secondary-color);
+}
+
+.custom-link:focus {
+  outline: none;
+}
+
+.custom-link:focus-visible {
+  outline: 1px solid var(--secondary-color);
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  height: 100vh;
+  padding: 20px 20px 20px 0;
+  background: var(--background-image) no-repeat center / cover;
+  min-block-size: 768px;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-inline-start: 20px;
+}
+
+.header__theme-menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  padding: 0 13px;
+  color: var(--nav-color);
+  font-size: var(--text-size-medium);
+  line-height: 1;
+  text-transform: lowercase;
+  background: none;
+  cursor: pointer;
+  block-size: 26px;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--nav-color);
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--hover-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--nav-color);
+}
+
+.header__rec {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-size-medium);
+  line-height: 1.3;
+  text-transform: uppercase;
+  inset-block-start: 20px;
+  inset-inline-end: 29px;
+}
+
+.header__rec::before {
+  content: "rec";
+  color: var(--accent-color);
+}
+
+.header__rec::after {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  box-shadow: 0px 0px 4px 2px var(--accent-color);
+  background-color: var(--accent-color);
+}
+
+.header__title {
+  text-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+.header__description {
+  justify-self: end;
+  align-self: center;
+  max-width: 491px;
+  font-weight: bolder;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin: 60px 0;
+  padding: 0;
+}
+
+.content-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.content-section_row .content-section__list {
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: span 3;
+}
+
+.content-section__title {
+  color: var(--title-color);
+  font-size: var(--text-size-medium);
+  line-height: 1.3;
+}
+
+.content-section__list {
+  display: grid;
+  grid-column: span 2;
+  gap: 20px;
+}
+
+.content-section__item-text {
+  padding-block-start: 10px;
+  color: var(--secondary-color);
+  font-size: var(--text-size-medium);
+  line-height: 1.3;
+}
+
+.content-section_image {
+  grid-template-columns: 1fr;
+}
+
+.content-section__list-image {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.content-section__item-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-image:nth-of-type(5n + 1),
+.item-image:nth-of-type(5n) {
+  grid-column: span 2;
+}
+
+.item-image:nth-of-type(5n + 2),
+.item-image:nth-of-type(5n + 3) {
+  grid-row: span 2;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-color) no-repeat center / cover;
+  block-size: 100vh;
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+@media (width < 1024px) {
+  .header__theme-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: column;
+  }
+
+  .content-section_row .content-section__list {
+    grid-template-columns: 1fr;
+  }
+
+  .header__title {
+    text-shadow: 4px 4px 0 var(--accent-color);
+  }
+}
+
+@media (768px <= width < 1024px) {
+  .header {
+    min-block-size: 1024px;
+  }
+
+  .accent-title-decor {
+    font-size: var(--mb-text-size-large);
+    line-height: 0.8;
+  }
+
+  .header__description {
+    max-width: 364px;
+  }
+}
+
+@media (width < 768px) {
+  .accent-title-decor {
+    font-size: var(--mb-text-size-medium);
+    line-height: 0.8;
+  }
+
+  .decorated-zone::before {
+    inset-block-start: 10px;
+    inset-inline-end: 10px;
+  }
+
+  .decorated-zone::after {
+    inset-block-end: 10px;
+    inset-inline-start: 10px;
+  }
+
+  .header {
+    padding: 10px;
+    min-block-size: 668px;
+  }
+
+  .header__rec {
+    inset-block-start: 10px;
+    inset-inline-end: 19px;
+  }
+
+  .main {
+    gap: 50px;
+    margin: 40px 0;
+  }
+
+  .content-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .content-section__list {
+    grid-column: auto;
+  }
+
+  .content-section__list-image {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .content-section_image {
+    gap: 10px 0;
+  }
+
+  .content-section__list-image .item-image {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
