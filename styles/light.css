@@ -27,5 +27,6 @@
     --subtitle-color: var(--secondary-color);
     --decor-color: var(--secondary-color);
     --nav-color: var(--secondary-color);
+    --display-rec: none;
   }
 }
