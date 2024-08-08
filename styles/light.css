@@ -29,4 +29,8 @@
     --nav-color: var(--secondary-color);
     --display-rec: none;
   }
+
+  .theme_auto .header__rec {
+    display: none;
+  }
 }
